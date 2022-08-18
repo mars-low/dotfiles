@@ -26,5 +26,8 @@ fi
 eval "$(mcfly init zsh)"
 eval "$(starship init zsh)"
 
+path+=("$HOME/bin")
+path+=("$HOME/.cargo/bin/")
+
 alias ls=exa
 alias cat=batcat
