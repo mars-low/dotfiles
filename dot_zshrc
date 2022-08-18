@@ -28,5 +28,3 @@ eval "$(starship init zsh)"
 
 alias ls=exa
 alias cat=batcat
-
-source /home/ant/.config/broot/launcher/bash/br
