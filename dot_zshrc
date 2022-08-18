@@ -26,11 +26,7 @@ fi
 eval "$(mcfly init zsh)"
 eval "$(starship init zsh)"
 
-path+=("$HOME/bin")
-path+=("$HOME/.cargo/bin/")
-path+=("$HOME/.local/bin")
-path+=("$HOME/go/bin")
-path+=("$HOME/dev/go/bin")
-
 alias ls=exa
 alias cat=batcat
+
+source /home/ant/.config/broot/launcher/bash/br

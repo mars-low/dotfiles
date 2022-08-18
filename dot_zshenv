@@ -1,0 +1,5 @@
+path+=("$HOME/bin")
+path+=("$HOME/.cargo/bin/")
+path+=("$HOME/.local/bin")
+path+=("$HOME/go/bin")
+path+=("$HOME/dev/go/bin")
