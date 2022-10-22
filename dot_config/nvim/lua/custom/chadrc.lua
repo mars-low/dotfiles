@@ -22,17 +22,20 @@ M.plugins = {
       end,
     },
     ["github/copilot.vim"] = {},
+    ["lewis6991/gitsigns.nvim"] = {},
   },
   override = {
     ["NvChad/nvterm"] = {
       terminals = {
         type_opts = {
           float = {
-            row = 0,
-            col = 0,
-            width = 1,
-            height = 1,
+            row = 0.35,
+            col = 0.4,
+            width = 0.6,
+            height = 0.6,
           },
+          horizontal = { location = "rightbelow", split_ratio = .7, },
+          vertical = { location = "rightbelow", split_ratio = .5 },
         },
       },
     },
