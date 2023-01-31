@@ -26,4 +26,35 @@ M.nvimtree = {
   }
 }
 
+M.dap = {
+    n = {
+        ["<F5>"] = { "<CMD>DapContinue<CR>", "start/continue debugging"},
+        ["<leader>pc"] = { "<CMD>DapContinue<CR>", "start/continue debugging"},
+        ["<leader>pR"] = { "<CMD>DapRestart<CR>", "restart debugging"},
+        ["<F10>"] = { "<CMD>DapStepOver<CR>", "step over next instruction while debugging"},
+        ["<leader>pn"] = { "<CMD>DapStepOver<CR>", "step over next instruction while debugging"},
+        ["<F11>"] = { "<CMD>DapStepIlnlto<CR>", "step into next instruction while debugging"},
+        ["<leader>pi"] = { "<CMD>DapStepInto<CR>", "step into next instruction while debugging"},
+        ["<F12>"] = { "<CMD>DapStepOut<CR>", "step out of current scope while debugging"},
+        ["<S-F5>"] = { "<CMD>DapTerminate<CR>", "terminate debugging"},
+        ["<leader>pQ"] = { "<CMD>DapTerminate<CR>", "terminate process while debugging"},
+        ["<leader>pq"] = { "<CMD>DapClose<CR>", "close process while debugging"},
+        ["<leader>po"] = { "<CMD>DapStepOut<CR>", "step out of current scope while debugging"},
+        ["<leader>pp"] = { "<CMD>DapStepBack<CR>", "step back to previous instruction while debugging"},
+        ["<leader>pP"] = { "<CMD>DapPause<CR>", "pause debugger while debugging"},
+        ["<leader>pg"] = { "<CMD>DapGotoCurrentLine<CR>", "go to current liner while debugging"},
+        ["<leader>pbb"] = { "<CMD>DapToggleBreakpoint<CR>", "toggle breakpoint"},
+        ["<leader>pbc"] = { "<CMD>DapSetConditionalBreakpoint<CR>", "set breakpoint with condition" },
+        ["<leader>pbB"] = { "<CMD>DapSetLogBreakpoint<CR>", "set breakpoint with log point message" },
+        ["<leader>pbl"] = { "<CMD>DapListBreakpoints<CR>", "list breakpoints" },
+        ["<leader>pbx"] = { "<CMD>DapClearBreakpoints<CR>", "clear breakpoints"},
+        ["<leader>pe"] = { "<CMD>DapToggleMiniRepl<CR>", "toggle repl environment"},
+        ["<leader>pl"] = { "<CMD>DapShowMiniLog<CR>", "show dap log"},
+        ["<leader>pu"] = { "<CMD>DapUiToggle<CR>", "toggle dap ui"},
+        ["<leader>pf"] = { "<CMD>DapUiFloatElement<CR>", "open floated element"},
+        ["<leader>pE"] = { "<CMD>DapUiEval<CR>", "evaludate selected expression while debugging"},
+    }
+}
+
 return M
+
