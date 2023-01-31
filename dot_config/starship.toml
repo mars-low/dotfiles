@@ -5,10 +5,10 @@ $username\
 ${custom.tmux_session}\
 [](bg:#DA627D fg:#86BBD8)\
 $directory\
-[](fg:#DA627D bg:#FCA17D)\
+[](fg:#DA627D bg:#4CA17D)\
 $git_branch\
 $git_status\
-[](fg:#FCA17D bg:#33658A)\
+[](fg:#4CA17D bg:#33658A)\
 $time\
 [ ](fg:#33658A)\
 $line_break\
@@ -17,7 +17,7 @@ $character
 
 # Disable the blank line at the start of the prompt
 add_newline = true
-
+command_timeout = 3000
 # You can also replace your username with a neat symbol like  to save some space
 [username]
 show_always = true
@@ -26,9 +26,9 @@ style_root = "bg:#9A348E"
 format = '[$user ]($style)'
 
 [directory]
-style = "bg:#DA627D"
+style = "fg:black bg:#DA627D"
 format = "[ $path ]($style)"
-truncation_length = 0
+truncation_length = 1
 truncate_to_repo = false
 truncation_symbol = "…/"
 
@@ -42,12 +42,13 @@ truncation_symbol = "…/"
 
 [git_branch]
 symbol = ""
-style = "bg:#FCA17D"
-format = '[[ $symbol $branch ](bg:#FCA17D)]($style)'
+truncation_length = 8
+style = "fg:black bg:#4CA17D"
+format = '[[ $symbol $branch ]($style)]($style)'
 
 [git_status]
-style = "bg:#FCA17D"
-format = '[[($all_status$ahead_behind )](bg:#FCA17D)]($style)'
+style = "fg:black bg:#4CA17D"
+format = '[[($all_status$ahead_behind )]($style)]($style)'
 
 [time]
 disabled = false
@@ -60,5 +61,5 @@ format = '[[ $time ](bg:#33658A)]($style)'
 description = "Display tmux session:window-pane attached to this shell"
 when = '[[ -n $TMUX ]]'
 command = "basename $(tmux display-message -p '#S:#I-#{pane_index}')"
-style = "bg:#86BBD8"
+style = "fg:black bg:#86BBD8"
 format = "[ $output ]($style)"
