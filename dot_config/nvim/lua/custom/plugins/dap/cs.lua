@@ -11,10 +11,19 @@ M.configuration = {
     type = 'coreclr';
     name = 'launch - netcoredbg';
     request = 'launch';
+    -- console = "integratedConsole",
     program = function()
-      return vim.fn.input('Path to dll: ', vim.fn.getcwd() .. '/src/renode/output/bin/Debug/net6.0/', 'file')
+      return vim.fn.input('Path to dll: ', vim.fn.getcwd() .. '/src/renode/output/bin/Debug/net6.0/Renode.dll', 'file')
     end,
-    console = 'internalConsole',
+    -- args = { '--disable-xwt' },
+    args = function()
+        local args = {}
+        local args_string = vim.fn.input('Args: ')
+        for word in args_string:gmatch("%S+") do
+          table.insert(args, word)
+        end
+        return args
+    end,
   },
   {
     type = 'coreclr';

@@ -34,13 +34,13 @@ M.plugins = {
       terminals = {
         type_opts = {
           float = {
-            row = 0.35,
-            col = 0.4,
-            width = 0.6,
-            height = 0.6,
+            row = 0.15,
+            col = 0.2,
+            width = 0.85,
+            height = 0.8,
           },
           horizontal = { location = "rightbelow", split_ratio = .7, },
-          vertical = { location = "rightbelow", split_ratio = .5 },
+          vertical = { location = "rightbelow", split_ratio = .9 },
         },
       },
     },
