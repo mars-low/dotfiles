@@ -1,17 +1,21 @@
+# format = """
+# [](#9A348E)\
+# $username\
+# [](bg:#86BBD8 fg:#9A348E)\
+# ${custom.tmux_session}\
+# [](bg:#DA627D fg:#86BBD8)\
+# $directory\
+# [](fg:#DA627D bg:#4CA17D)\
+# $git_branch\
+# $git_status\
+# [](fg:#4CA17D bg:#33658A)\
+# $time\
+# [ ](fg:#33658A)\
+# $line_break\
+# $character
+# """
+
 format = """
-[](#9A348E)\
-$username\
-[](bg:#86BBD8 fg:#9A348E)\
-${custom.tmux_session}\
-[](bg:#DA627D fg:#86BBD8)\
-$directory\
-[](fg:#DA627D bg:#4CA17D)\
-$git_branch\
-$git_status\
-[](fg:#4CA17D bg:#33658A)\
-$time\
-[ ](fg:#33658A)\
-$line_break\
 $character
 """
 
@@ -20,7 +24,7 @@ add_newline = false
 command_timeout = 3000
 # You can also replace your username with a neat symbol like  to save some space
 [username]
-show_always = true
+show_always = false
 style_user = "bg:#9A348E"
 style_root = "bg:#9A348E"
 format = '[$user ]($style)'
