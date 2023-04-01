@@ -1,69 +1,63 @@
 # format = """
-# [](#9A348E)\
-# $username\
-# [](bg:#86BBD8 fg:#9A348E)\
-# ${custom.tmux_session}\
-# [](bg:#DA627D fg:#86BBD8)\
-# $directory\
-# [](fg:#DA627D bg:#4CA17D)\
-# $git_branch\
-# $git_status\
-# [](fg:#4CA17D bg:#33658A)\
-# $time\
-# [ ](fg:#33658A)\
+# [░](#a3aed2)\
+# $fill\
+# [░ ](#a3aed2)\
 # $line_break\
-# $character
+# [░](#a3aed2)\
+# $fill\
+# [░ ](#a3aed2)\
+# $line_break\
+# $character\
 # """
 
 format = """
 $character
 """
 
+right_format = """
+[($status)](bold bright-red)
+[($cmd_duration)](bold bright-blue)
+[($memory_usage)](bold bright-green) \
+$sudo$jobs
+[❮](#a3aed2)
+"""
+
 # Disable the blank line at the start of the prompt
 add_newline = false
 command_timeout = 3000
-# You can also replace your username with a neat symbol like  to save some space
-[username]
-show_always = false
-style_user = "bg:#9A348E"
-style_root = "bg:#9A348E"
-format = '[$user ]($style)'
 
-[directory]
-style = "fg:black bg:#DA627D"
-format = "[ $path ]($style)"
-truncation_length = 1
-truncate_to_repo = false
-truncation_symbol = "…/"
+[fill]
+symbol = ' '
+style = 'bold green'
 
-# Here is how you can shorten some long paths by text replacement
-# similar to mapped_locations in Oh My Posh:
-[directory.substitutions]
-"Documents" = " "
-"Downloads" = " "
-"Music" = " "
-"Pictures" = " "
+[cmd_duration]
+min_time = 500
+style = 'bg:bright-blue'
+format = '[$duration]($style)'
 
-[git_branch]
-symbol = ""
-truncation_length = 8
-style = "fg:black bg:#4CA17D"
-format = '[[ $symbol $branch ]($style)]($style)'
-
-[git_status]
-style = "fg:black bg:#4CA17D"
-format = '[[($all_status$ahead_behind )]($style)]($style)'
-
-[time]
+[memory_usage]
 disabled = false
-time_format = "%R" # Hour:Minute Format
-style = "bg:#33658A"
-format = '[[ $time ](bg:#33658A)]($style)'
+threshold = -1
+format ='[${ram}]($style)'
+style = 'bg:bright-green'
 
-# custom modules ♥ 
-[custom.tmux_session]
-description = "Display tmux session:window-pane attached to this shell"
-when = '[[ -n $TMUX ]]'
-command = "basename $(tmux display-message -p '#S:#I-#{pane_index}')"
-style = "fg:black bg:#86BBD8"
-format = "[ $output ]($style)"
+[status]
+disabled = false
+style = "bg:bright-red"
+format = "[$symbol$status( 飯$signal_name)]($style)"
+symbol = ""
+not_executable_symbol = ""
+not_found_symbol = ""
+sigint_symbol = "ﰸ"
+signal_symbol = "⚡"
+map_symbol = true
+pipestatus = true
+pipestatus_separator = "|"
+pipestatus_segment_format = "$symbol$status( 飯$signal_name)"
+pipestatus_format ='[\[$pipestatus\]]($style)'
+
+[sudo]
+style = 'bold green'
+format = '[$symbol]($style) '
+symbol = ''
+disabled = false
