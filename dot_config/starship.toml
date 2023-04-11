@@ -1,23 +1,14 @@
-# format = """
-# [░](#a3aed2)\
-# $fill\
-# [░ ](#a3aed2)\
-# $line_break\
-# [░](#a3aed2)\
-# $fill\
-# [░ ](#a3aed2)\
-# $line_break\
-# $character\
-# """
-
 format = """
 $character
 """
 
+# These values are displayed in tmux status bar
+# [($memory_usage)](bold bright-green)\
+# [(${custom.disk_space})](bold bright-blue) \
+
 right_format = """
 [($status)](bold bright-red)
-[($cmd_duration)](bold bright-blue)
-[($memory_usage)](bold bright-green) \
+[($cmd_duration)](bold bright-blue) \
 $sudo$jobs
 [❮](#a3aed2)
 """
@@ -61,3 +52,22 @@ style = 'bold green'
 format = '[$symbol]($style) '
 symbol = ''
 disabled = false
+
+[custom.disk_space]
+description = "Display free disk space"
+# Percent sign needs to be removed from the output of the command (zsh)
+# See: https://github.com/starship/starship/issues/3222
+# command = "df -h / --output=avail,pcent | sed -e 1d | head -1 | awk '$1=$1'" # This won't work
+# command = "df -h / --output=avail,pcent | sed -e 1d | head -1 | awk '$1=$1' | sed 's/%//'"
+# format = "[$output%]($style)"
+command = "df -h / --output=avail | sed -e 1d | head -1 | awk '$1=$1'"
+when = true
+format = "[$output]($style)"
+style = "fg:black bg:bright-blue"
+
+[custom.zsh_escape]
+command = "printf '%s' '%_∙'" # shows output of command
+shell = "zsh"
+when = true
+format = "[$output ]($style)"
+style = "bright-black"
