@@ -15,16 +15,75 @@ plugins=(
 
 source $ZSH/oh-my-zsh.sh
 
-# Preferred editor for local and remote sessions
-if [[ -n $SSH_CONNECTION ]]; then
-  export EDITOR='nvim'
-else
-  export EDITOR='nvim'
+if command -v nvim &> /dev/null
+then
+  # Preferred editor for local and remote sessions
+  if [[ -n $SSH_CONNECTION ]]; then
+    export EDITOR='nvim'
+  else
+    export EDITOR='nvim'
+  fi
 fi
 
 # Fly through your shell history (https://github.com/cantino/mcfly)
-eval "$(mcfly init zsh)"
-eval "$(starship init zsh)"
+if command -v mcfly &> /dev/null
+then
+  export MCFLY_RESULTS=35
+  eval "$(mcfly init zsh)"
+fi
+# Customizable prompt (https://github.com/starship/starship)
+if command -v starship &> /dev/null
+then
+  eval "$(starship init zsh)"
+fi
 
-alias ls=exa
-alias cat=batcat
+# Show this many history lines when pressing ↑.
+zstyle ':autocomplete:history-search:*' list-lines 50  # int
+zstyle ':autocomplete:*' widget-style menu-select
+bindkey -M menuselect '\r' accept-line
+
+# Clear screen before each command
+function clear_screen() {
+  printf '\033[H\033[2J' #clear -x
+}
+autoload -Uz add-zsh-hook
+add-zsh-hook preexec clear_screen
+
+function tmux-window-name() {
+  if [ -f $TMUX_PLUGIN_MANAGER_PATH/tmux-window-name/scripts/rename_session_windows.py ]; then
+    ($TMUX_PLUGIN_MANAGER_PATH/tmux-window-name/scripts/rename_session_windows.py &)
+  fi
+}
+# add hook if tmux is running
+[[ -n $TMUX ]] && add-zsh-hook chpwd tmux-window-name
+
+# Create alias only when command exists
+if command -v exa &> /dev/null
+then
+    alias exa="exa --long --all --level 2 --group-directories-first --header --links --inode --blocks --accessed --created --modified"
+fi
+
+if command -v batcat &> /dev/null
+then
+    alias cat=batcat
+fi
+
+if command -v lsd &> /dev/null
+then
+    alias ls=lsd
+fi
+
+# Custom functions
+fpath+=~/zshfunctions
+# https://github.com/dotnet/command-line-api/issues/1849#issuecomment-1461036742
+if command -v dotnet-suggest &> /dev/null
+then
+    autoload -Uz _dotnet && _dotnet
+fi
+# Command cheatsheet (https://github.com/denisidoro/navi)
+if command -v navi &> /dev/null
+then
+    autoload -Uz _navi && _navi
+fi
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

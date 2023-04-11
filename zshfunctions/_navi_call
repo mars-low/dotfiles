@@ -1,0 +1,5 @@
+# Command cheatsheet (https://github.com/denisidoro/navi)
+function _navi_call() {
+   local result="$(navi "$@" </dev/tty)"
+   printf "%s" "$result"
+}

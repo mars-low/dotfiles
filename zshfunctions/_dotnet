@@ -1,0 +1,7 @@
+
+# https://github.com/dotnet/command-line-api/issues/1849#issuecomment-1461036742
+autoload -Uz _dotnet_suggest_zsh_complete
+autoload -Uz _dotnet_zsh_complete
+compdef _dotnet_suggest_zsh_complete $(dotnet-suggest list | grep -v "dotnet-script")
+compdef _dotnet_zsh_complete dotnet
+export DOTNET_SUGGEST_SCRIPT_VERSION="1.0.0"
