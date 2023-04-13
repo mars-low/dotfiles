@@ -49,14 +49,6 @@ function clear_screen() {
 autoload -Uz add-zsh-hook
 add-zsh-hook preexec clear_screen
 
-function tmux-window-name() {
-  if [ -f $TMUX_PLUGIN_MANAGER_PATH/tmux-window-name/scripts/rename_session_windows.py ]; then
-    ($TMUX_PLUGIN_MANAGER_PATH/tmux-window-name/scripts/rename_session_windows.py &)
-  fi
-}
-# add hook if tmux is running
-[[ -n $TMUX ]] && add-zsh-hook chpwd tmux-window-name
-
 # Create alias only when command exists
 if command -v exa &> /dev/null
 then
