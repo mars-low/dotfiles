@@ -1,3 +1,8 @@
+# https://apple.stackexchange.com/questions/269324/zsh-terminal-displaying-characters-and-cursor-in-the-wrong-place
+# https://stackoverflow.com/a/29609673
+LC_ALL=en_US.UTF-8
+LANG=en_US.UTF-8
+
 UTILS_PATH=$HOME/repos/personal/utils
 
 path+=("/usr/sbin")
@@ -5,10 +10,11 @@ path+=("$HOME/bin")
 path+=("$HOME/.local/bin")
 path+=("$HOME/bluez/tools")
 path+=("$HOME/bluez/monitor")
-path+=("$HOME/.local/share/bob/nvim-bin")
+# path+=("$HOME/.local/share/bob/nvim-bin")
 path+=("$UTILS_PATH/r2env/versions/radare2@git/bin")
 path+=("$UTILS_PATH/cargo/bin")
 path+=("$UTILS_PATH/go/bin")
 path+=("$UTILS_PATH/pipx/bin")
 path+=("$UTILS_PATH/dotnet")
 path+=("$UTILS_PATH/bin")
+path+=("$UTILS_PATH/app")
