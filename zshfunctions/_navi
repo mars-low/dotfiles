@@ -1,5 +1,0 @@
-# Command cheatsheet (https://github.com/denisidoro/navi)
-autoload -Uz _navi_call
-autoload -Uz _navi_widget
-zle -N _navi_widget
-bindkey '^n' _navi_widget

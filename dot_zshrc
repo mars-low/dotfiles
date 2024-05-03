@@ -65,17 +65,4 @@ then
     alias ls=lsd
 fi
 
-# Custom functions
-fpath+=~/zshfunctions
-# https://github.com/dotnet/command-line-api/issues/1849#issuecomment-1461036742
-# if command -v dotnet-suggest &> /dev/null
-# then
-#     autoload -Uz _dotnet && _dotnet
-# fi
-# Command cheatsheet (https://github.com/denisidoro/navi)
-if command -v navi &> /dev/null
-then
-    autoload -Uz _navi && _navi
-fi
-
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
