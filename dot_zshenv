@@ -3,9 +3,21 @@
 LC_ALL=en_US.UTF-8
 LANG=en_US.UTF-8
 
-REPOS_PATH=$HOME/repos
+DOTNET_CLI_TELEMETRY_OPTOUT=1
+DOTNET_NOLOGO=1
 
-UTILS_PATH=$REPOS_PATH/personal/utils
+HOME=/home/codespace
+SHELL=/usr/bin/zsh
+CARGO_HOME=$HOME/.cargo
+
+# custom personal variables
+REPOS_PATH=$HOME/repos
+PERSONAL_PATH=$HOME/repos/personal
+UTILS_PATH=$PERSONAL_PATH/utils
+
+XDG_DATA_HOME=$PERSONAL_PATH/$HOME/.local/share
+XDG_CONFIG_HOME=$PERSONAL_PATH/$HOME/.config
+XDG_CACHE_HOME=$PERSONAL_PATH/$HOME/.cache
 
 PIPX_HOME=$UTILS_PATH/pipx
 PIPX_BIN_DIR=$PIPX_HOME/bin
@@ -19,9 +31,17 @@ PULSE_RUNTIME_DIR=$HOME
 ANDROID_HOME=$REPOS_PATH/android/android-sdk
 ANDROID_AVD_HOME=$ANDROID_HOME/system-images
 
+LOCAL_FLATPAK_PATH=$UTILS_PATH/flatpak
+FLATPAK_USER_DIR=$LOCAL_FLATPAK_PATH/user
+FLATPAK_SYSTEM_DIR=$LOCAL_FLATPAK_PATH/var/lib
+FLATPAK_SYSTEM_CACHE_DIR=$LOCAL_FLATPAK_PATH/var/tmp
+FLATPAK_CONFIG_DIR=$LOCAL_FLATPAK_PATH/etc
+FLATPAK_RUN_DIR=$LOCAL_FLATPAK_PATH/run
+
 path+=("/usr/sbin")
 path+=("$HOME/bin")
 path+=("$HOME/.local/bin")
+path+=("$HOME/.cargo/bin")
 path+=("$HOME/bluez/tools")
 path+=("$HOME/bluez/monitor")
 path+=("$UTILS_PATH/r2env/versions/radare2@git/bin")
