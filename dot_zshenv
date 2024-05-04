@@ -41,6 +41,7 @@ export FLATPAK_CONFIG_DIR=$LOCAL_FLATPAK_PATH/etc
 export FLATPAK_RUN_DIR=$LOCAL_FLATPAK_PATH/run
 
 path+=("/usr/sbin")
+path+=("/usr/share/dotnet")
 path+=("$HOME/bin")
 path+=("$HOME/.local/bin")
 path+=("$HOME/.cargo/bin")
