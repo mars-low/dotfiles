@@ -15,10 +15,11 @@ export CARGO_HOME=$HOME/.cargo
 # custom personal variables
 REPOS_PATH=$HOME/repos
 UTILS_PATH=$REPOS_PATH/personal/utils
+FLATPAK_HOME=$UTILS_PATH/home/codespace
 
-export XDG_DATA_HOME=$UTILS_PATH/home/codespace/.local/share
-export XDG_CONFIG_HOME=$UTILS_PATH/home/codespace/.config
-export XDG_CACHE_HOME=$UTILS_PATH/home/codespace/.cache
+export XDG_DATA_HOME=$FLATPAK_HOME/.local/share
+export XDG_CONFIG_HOME=$FLATPAK_HOME/.config
+export XDG_CACHE_HOME=$FLATPAK_HOME/.cache
 
 export PIPX_HOME=$UTILS_PATH/pipx
 export PIPX_BIN_DIR=$PIPX_HOME/bin
