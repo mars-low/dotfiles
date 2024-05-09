@@ -13,7 +13,7 @@ export SHELL=/usr/bin/zsh
 export CARGO_HOME=$HOME/.cargo
 
 # custom personal variables
-REPOS_PATH=$HOME/repos
+REPOS_PATH=/vm-storage/repos
 UTILS_PATH=$REPOS_PATH/personal/utils
 FLATPAK_HOME=$UTILS_PATH/home/codespace
 
